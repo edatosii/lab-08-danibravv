@@ -47,5 +47,18 @@ public class Calculadora {
     public boolean esPar(int numero) {
         return numero % 2 == 0;
     }
+
+
+    /** @return n! para enteros entre 0 y 20; 0! = 1 */
+    public long factorial(int n) {
+        if (n < 0 || n > 20) {
+            throw new IllegalArgumentException("El factorial debe estar entre 0 y 20");
+        }
+        long resultado = 1;
+        for (int i = 2; i <= n; i++) {
+            resultado *= i;
+        }
+        return resultado;
+    }
 }
 

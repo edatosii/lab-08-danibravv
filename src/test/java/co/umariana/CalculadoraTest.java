@@ -104,4 +104,25 @@ class CalculadoraTest {
         assertTrue(calc.esPar(-2));
         assertFalse(calc.esPar(-3));
     }
+
+    // ---------------- factorial (ejemplo TDD) ----------------
+    @Test
+    @DisplayName("factorial: cero y uno valen uno")
+    void factorialCasosBase() {
+        assertEquals(1L, calc.factorial(0));
+        assertEquals(1L, calc.factorial(1));
+    }
+
+    @Test
+    @DisplayName("factorial: calcula el producto de los enteros positivos")
+    void factorialPositivo() {
+        assertEquals(120L, calc.factorial(5));
+    }
+
+    @Test
+    @DisplayName("factorial: rechaza valores fuera del rango soportado")
+    void factorialFueraDeRango() {
+        assertThrows(IllegalArgumentException.class, () -> calc.factorial(-1));
+        assertThrows(IllegalArgumentException.class, () -> calc.factorial(21));
+    }
 }
